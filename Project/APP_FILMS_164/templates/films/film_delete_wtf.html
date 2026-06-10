@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %} Effacer un FILM (WTF) {% endblock %}
+{% block title %} Effacer un FICHIER (t_files) {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<p>
-				Effacer un FILM
+				Effacer un FICHIER (t_files)
 			</p>
 			<table class="table table-responsive-sm">
 				{% if data_film_del %}
@@ -18,16 +18,16 @@
 						Nom
 					</th>
 					<th class="">
-						Durée
+						Taille (file_size)
 					</th>
 					<th class="">
-						Date de sortie
+						Date de création
 					</th>
 					<th class="">
-						Description
+						Chemin (storage_path)
 					</th>
 					<th class="">
-						Affiche
+						Type MIME
 					</th>
 				</tr>
 				</thead>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Afficher GENRES {% endblock %}
+{% block title %} Afficher DOSSIERS (t_folders) {% endblock %}
 {% block body %}
 <div class="container">
 	<div class="row">
@@ -15,10 +15,10 @@
                             Id
                         </th>
                         <th class="align-middle">
-                            Genre
+                            Nom du dossier
                         </th>
                         <th class="align-middle">
-							Date insertion (pour exemple)
+							Date de création
                         </th>
                         <th class="align-middle">
 
@@ -57,7 +57,7 @@
 				<tbody>
 					<tr>
 						<td>
-							Aucun genre.
+							Aucun dossier.
 						</td>
 						<td>
 							<a class="btn btn-primary" href="{{ url_for('genres_ajouter_wtf') }}" role="button">Ajouter</a>

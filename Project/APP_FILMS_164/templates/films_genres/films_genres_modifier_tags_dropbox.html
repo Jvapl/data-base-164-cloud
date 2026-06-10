@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %} Afficher FILMS GENRES {% endblock %}
+{% block title %} Associer FICHIERS (t_files) / DOSSIERS (t_folders) {% endblock %}
 {% block head %}
     <!--
         OM 2020.05.04
@@ -37,7 +37,7 @@
 
 			</p>
             <p>
-                Films.
+                Fichiers (t_files).
             </p>
             <table class="table table-responsive-sm">
                 {% if data_film_selected %}
@@ -47,19 +47,19 @@
                                 id
                             </th>
                             <th class="">
-                                Titre
+                                Nom
                             </th>
                             <th class="">
-                                Durée
+                                Taille (file_size)
                             </th>
                             <th class="">
-                                Date sortie
+                                Date création
                             </th>
                             <th class="">
-                                Description
+                                Chemin (storage_path)
                             </th>
                             <th class="">
-                                Affiche
+                                Type MIME
                             </th>
                         </tr>
                     </thead>
@@ -92,7 +92,7 @@
 				<tbody>
 					<tr>
 						<td>
-							Aucun film.
+							Aucun fichier.
 						</td>
 						<td>
 							<a class="btn btn-primary" href="{{ url_for('avertissement_sympa_pour_geeks') }}" role="button">Add</a>

@@ -55,9 +55,9 @@ def genres_afficher(order_by, id_genre_sel):
                 if not data_genres and id_genre_sel == 0:
                     flash("""La table "t_folders" est vide. !!""", "warning")
                 elif not data_genres and id_genre_sel > 0:
-                    flash(f"Le dossier demandé n'existe pas !!", "warning")
+                    flash(f"Le dossier (t_folders) demandé n'existe pas !!", "warning")
                 else:
-                    flash(f"Données dossiers affichés !!", "success")
+                    flash(f"Données dossiers (t_folders) affichés !!", "success")
 
         except Exception as Exception_genres_afficher:
             raise ExceptionGenresAfficher(f"fichier : {Path(__file__).name}  ;  "
@@ -103,8 +103,8 @@ def genres_ajouter_wtf():
                 with DBconnection() as mconn_bd:
                     mconn_bd.execute(strsql_insert_genre, valeurs_insertion_dictionnaire)
 
-                flash(f"Données insérées !!", "success")
-                print(f"Données insérées !!")
+                flash(f"Dossier inséré dans t_folders !!", "success")
+                print(f"Dossier inséré dans t_folders !!")
 
                 # Pour afficher et constater l'insertion de la valeur, on affiche en ordre inverse. (DESC)
                 return redirect(url_for('genres_afficher', order_by='DESC', id_genre_sel=0))
@@ -165,8 +165,8 @@ def genre_update_wtf():
             with DBconnection() as mconn_bd:
                 mconn_bd.execute(str_sql_update_intitulegenre, valeur_update_dictionnaire)
 
-            flash(f"Donnée mise à jour !!", "success")
-            print(f"Donnée mise à jour !!")
+            flash(f"Dossier (t_folders) mis à jour !!", "success")
+            print(f"Dossier (t_folders) mis à jour !!")
 
             # afficher et constater que la donnée est mise à jour.
             # Affiche seulement la valeur modifiée, "ASC" et l'"id_genre_update"
@@ -232,7 +232,7 @@ def genre_delete_wtf():
                 data_films_attribue_genre_delete = session['data_films_attribue_genre_delete']
                 print("data_films_attribue_genre_delete ", data_films_attribue_genre_delete)
 
-                flash(f"Effacer le genre de façon définitive de la BD !!!", "danger")
+                flash(f"Effacer le dossier (t_folders) de façon définitive de la BD !!!", "danger")
                 # L'utilisateur vient de cliquer sur le bouton de confirmation pour effacer...
                 # On affiche le bouton "Effacer genre" qui va irrémédiablement EFFACER le genre
                 btn_submit_del = True
@@ -247,8 +247,8 @@ def genre_delete_wtf():
                     mconn_bd.execute(str_sql_unlink_files, valeur_delete_dictionnaire)
                     mconn_bd.execute(str_sql_delete_idgenre, valeur_delete_dictionnaire)
 
-                flash(f"Genre définitivement effacé !!", "success")
-                print(f"Genre définitivement effacé !!")
+                flash(f"Dossier (t_folders) définitivement effacé !!", "success")
+                print(f"Dossier (t_folders) définitivement effacé !!")
 
                 # afficher les données
                 return redirect(url_for('genres_afficher', order_by="ASC", id_genre_sel=0))
